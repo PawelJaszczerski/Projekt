@@ -33,8 +33,8 @@ Program działa szybko i płynnie dzięki pracy na tablicach NumPy i funkcjach
 zoptymalizowanych pod kątem czasu pracy. Wyświetla dane liczbowe z dokładnością do
 czterech miejsc po przecinku.
 ## 4. Harmonogram
-27.11 – funkcje i wyliczenia
-4.12 - wykresy
-11.12 - wizualizacja
-18.12 - obsługa plików
-8.01 - obsługa błędów
+- 27.11 – funkcje i wyliczenia
+- 4.12 - wykresy
+- 11.12 - wizualizacja
+- 18.12 - obsługa plików
+- 8.01 - obsługa błędów
