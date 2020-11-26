@@ -6,12 +6,17 @@ import math
 # omega - częstość kołowa [rad/s]
 # T - okres [s]
 g = 9.8067
-def częstość(d):
+def czestosc(d):
     global omega
     omega = d/g
     return omega
-def okres(omega):
+def okres(d):
     global T
+    czestosc(d)
     T= 2*math.pi*(omega)**(1/2)
     return T
-
+def wychylenie(t,theta_0,d):
+    czestosc(d)
+    global theta
+    theta=theta_0* math.sin(omega*t+theta_0)
+    return theta
