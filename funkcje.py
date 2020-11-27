@@ -15,16 +15,24 @@ def okres(d):
     czestosc(d)
     T = 2*math.pi*(omega)**(1/2)
     return T
-def wychylenie(t,theta_0,d):
+def wychylenie(t, theta_0, d):
     czestosc(d)
     global theta
     theta=theta_0* math.sin(omega*t+theta_0)
     return theta
-def energia_potencjalna(d, theta, m):
+def energia_potencjalna(t, d, theta_0, m):
+    wychylenie(t, theta_0, d)
     global Ep
     Ep = m*g*d*math.sin(theta)
     return Ep
-def energia_kinetyczna(d, theta_0, theta, m):
+def energia_kinetyczna(t, d, theta_0, m):
+    wychylenie(t, theta_0, d)
     global Ek
     Ek = m*g*d*(math.sin(theta_0)-math.sin(theta))
     return Ek
+def energia_całkowita(t, d, theta_0, m):
+    energia_potencjalna(t, d, theta_0, m)
+    energia_kinetyczna(t, d, theta_0, m)
+    global Ec
+    Ec = Ek + Ep
+    return Ec
