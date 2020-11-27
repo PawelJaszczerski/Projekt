@@ -5,6 +5,7 @@ import math
 # m - masa punktowa [kg]
 # omega - częstość kołowa [rad/s]
 # T - okres [s]
+# t - czas [s]
 g = 9.8067
 def czestosc(d):
     global omega
@@ -23,14 +24,14 @@ def wychylenie(t, theta_0, d):
 def energia_potencjalna(t, d, theta_0, m):
     wychylenie(t, theta_0, d)
     global Ep
-    Ep = m*g*d*math.sin(theta)
+    Ep = m*g*d*(1-math.cos(theta))
     return Ep
 def energia_kinetyczna(t, d, theta_0, m):
     wychylenie(t, theta_0, d)
     global Ek
-    Ek = m*g*d*(math.sin(theta_0)-math.sin(theta))
+    Ek = m*g*d*(math.cos(theta)-math.cos(theta_0))
     return Ek
-def energia_całkowita(t, d, theta_0, m):
+def energia_calkowita(t, d, theta_0, m):
     energia_potencjalna(t, d, theta_0, m)
     energia_kinetyczna(t, d, theta_0, m)
     global Ec
