@@ -13,10 +13,18 @@ def czestosc(d):
 def okres(d):
     global T
     czestosc(d)
-    T= 2*math.pi*(omega)**(1/2)
+    T = 2*math.pi*(omega)**(1/2)
     return T
 def wychylenie(t,theta_0,d):
     czestosc(d)
     global theta
     theta=theta_0* math.sin(omega*t+theta_0)
     return theta
+def energia_potencjalna(d, theta, m):
+    global Ep
+    Ep = m*g*d*math.sin(theta)
+    return Ep
+def energia_kinetyczna(d, theta_0, theta, m):
+    global Ek
+    Ek = m*g*d*(math.sin(theta_0)-math.sin(theta))
+    return Ek
