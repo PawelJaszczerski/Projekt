@@ -9,7 +9,7 @@ import math
 g = 9.8067
 def angfreq(d):
     global omega
-    omega = d/g
+    omega = (d/g)**(1/2)
     return omega
 def period(d):
     global T
@@ -37,3 +37,6 @@ def tot_en(t, d, theta_0, m):
     global Ec
     Ec = Ek + Ep
     return Ec
+
+
+print(angle(1,1,1))
