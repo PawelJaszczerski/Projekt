@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import math
 
-time = np.linspace(0., 100., 1000)
+time = np.linspace(0., 50., 1000)
 
 plt.subplot(311)
 angle = np.vectorize(fn.angle)
