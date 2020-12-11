@@ -14,7 +14,7 @@ def angfreq(d):
 def period(d):
     global T
     angfreq(d)
-    T = 2*math.pi*(omega)**(1/2)
+    T = 2*math.pi*(omega)
     return T
 def angle(t, theta_0, d):
     angfreq(d)
@@ -38,5 +38,3 @@ def tot_en(t, d, theta_0, m):
     Ec = Ek + Ep
     return Ec
 
-
-print(angle(1,1,1))
