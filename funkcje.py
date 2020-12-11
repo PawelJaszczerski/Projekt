@@ -19,7 +19,7 @@ def period(d):
 def angle(t, theta_0, d):
     angfreq(d)
     global theta
-    theta=theta_0* math.sin(omega*t+theta_0)
+    theta=theta_0* math.cos(omega*t)
     return theta
 def pot_en(t, d, theta_0, m):
     angle(t, theta_0, d)
@@ -38,3 +38,4 @@ def tot_en(t, d, theta_0, m):
     Ec = Ek + Ep
     return Ec
 
+print(angle(1,0.1,1))
