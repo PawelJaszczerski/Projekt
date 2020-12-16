@@ -1,4 +1,3 @@
-import math
 import numpy as np
 # d - długość wahadła [m]
 # theta_0 - kąt wychylenia początkowego [rad]
@@ -27,17 +26,17 @@ def period(d):
 def angle(t, theta_0, d):
     angfreq(d)
     global theta
-    theta=theta_0* math.cos(omega*t)
+    theta=theta_0* np.cos(omega*t)
     return theta
 def pot_en(t, d, theta_0, m):
     angle(t, theta_0, d)
     global Ep
-    Ep = m*g*d*(1-math.cos(theta))
+    Ep = m*g*d*(1-np.cos(theta))
     return Ep
 def kin_en(t, d, theta_0, m):
     angle(t, theta_0, d)
     global Ek
-    Ek = m*g*d*(math.cos(theta)-math.cos(theta_0))
+    Ek = m*g*d*(np.cos(theta)-np.cos(theta_0))
     return Ek
 def tot_en(t, d, theta_0, m):
     pot_en(t, d, theta_0, m)
@@ -50,4 +49,3 @@ def velocity(t, d, theta_0, m):
     kin_en(t, d, theta_0, m)
     v = (2*Ek/m)**(1/2)
     return v
-
