@@ -1,4 +1,5 @@
 import math
+import numpy as np
 # d - długość wahadła [m]
 # theta_0 - kąt wychylenia początkowego [rad]
 # g - przyspieszenie grawitacyjne (docelowo ziemskie jako domyślne lub wprowadzane przez użytkownika)
@@ -6,7 +7,14 @@ import math
 # omega - częstość kołowa [rad/s]
 # T - okres [s]
 # t - czas [s]
+
+#przykładowe dane
 g = 9.8067
+d = 10
+m = 1
+t = np.arange(0., 1000., 0.1)
+theta_0 = 1/12*np.pi
+
 def angfreq(d):
     global omega
     omega = (d/g)**(1/2)
@@ -14,7 +22,7 @@ def angfreq(d):
 def period(d):
     global T
     angfreq(d)
-    T = 2*math.pi*(omega)
+    T = 2*np.pi*(omega)
     return T
 def angle(t, theta_0, d):
     angfreq(d)
@@ -37,5 +45,9 @@ def tot_en(t, d, theta_0, m):
     global Ec
     Ec = Ek + Ep
     return Ec
+def velocity(t, d, theta_0, m):
+    global v
+    kin_en(t, d, theta_0, m)
+    v = (2*Ek/m)**(1/2)
+    return v
 
-print(angle(1,0.1,1))
