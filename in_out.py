@@ -23,7 +23,7 @@ def param():
         print('proszę wprowadzić dane do pliku tekstowego i uruchomić program ponownie')
 
 
-param()
+
 
 def output():
     odata=open('data.txt','a')
@@ -33,7 +33,22 @@ def output():
     fn.angfreq(d)
     omega=fn.omega
     odata.write('\nomega[rad/s]:'+str(omega))
+    fn.tot_en(d,theta_0,m)
+    Ec=fn.Ec
+    odata.write('\nEc[J]:'+str(Ec))
     odata.close()
+    os.rename('data.txt','odata.txt')
 
 
-output()
+
+param()
+
+try:
+    param()
+except ValueError:
+    print('no u')
+else:
+    output()
+
+
+
