@@ -1,7 +1,6 @@
 import funkcje as fn
 import matplotlib.pyplot as plt
 import numpy as np
-import math
 
 time = np.linspace(0., 50., 1000)
 

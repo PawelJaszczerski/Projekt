@@ -26,8 +26,8 @@ line = lines[0]
 
 def animation(frame):
     global x, y
-    x = d *  np.sin(fn.angle(frame, theta_0, d))
-    y = d - d *  np.cos(fn.angle(frame, theta_0, d))
+    x = d * np.sin(fn.angle(frame, theta_0, d))
+    y = d - d * np.cos(fn.angle(frame, theta_0, d))
     point.set_data(x, y)
     xline = x
     yline = y

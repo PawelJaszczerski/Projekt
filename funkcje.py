@@ -38,11 +38,9 @@ def kin_en(t, d, theta_0, m):
     global Ek
     Ek = m*g*d*(np.cos(theta)-np.cos(theta_0))
     return Ek
-def tot_en(t, d, theta_0, m):
-    pot_en(t, d, theta_0, m)
-    kin_en(t, d, theta_0, m)
+def tot_en(d, theta_0, m):
     global Ec
-    Ec = Ek + Ep
+    Ec = m*g*d*(1-np.cos(theta_0))
     return Ec
 def velocity(t, d, theta_0, m):
     global v
