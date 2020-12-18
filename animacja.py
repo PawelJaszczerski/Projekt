@@ -2,13 +2,15 @@ import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib.animation as ani
 import funkcje as fn
+import in_out as io
 
+io.param()
 #przykładowe dane
 g = 9.8067
-d = 1
-m = 1
+d=io.d
+m=io.m
 t = np.arange(0., 1000., 0.1)
-theta_0 = 1/36*np.pi
+theta_0=np.radians(io.theta_0)
 
 fig = plt.figure()
 
