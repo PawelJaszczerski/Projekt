@@ -3,11 +3,15 @@ import in_out as io
 try:
     io.param()
 except ValueError:
-    print('proszę wprowadzić dane do pliku tekstowego i uruchomić program ponownie')
+    print('Proszę wprowadzić dane do pliku i uruchomić program ponownie')
 else:
-    io.output()
-    io.preview()
-    import wykresy
-    import animacja
-    wykresy.wykresy()
-    animacja.animacja()
+    try:
+        io.output()
+        io.preview()
+    except NameError:
+        print('Proszę wprowadzić dane do pliku i uruchomić program ponownie')
+    else:
+        import wykresy
+        import animacja
+        wykresy.wykresy()
+        animacja.animacja()
