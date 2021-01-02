@@ -20,8 +20,6 @@ def param():
         data.write('\ntheta_0[stopnie]:')
         data.write('\nm[kg]:')
         data.close()
-        print('proszę wprowadzić dane do pliku tekstowego i uruchomić program ponownie')
-
 
 
 
@@ -29,7 +27,7 @@ def output():
     odata=open('data.txt','a')
     fn.period(d)
     T=fn.T
-    odata.write('T[s]:'+str(T))
+    odata.write('\nT[s]:'+str(T))
     fn.angfreq(d)
     omega=fn.omega
     odata.write('\nomega[rad/s]:'+str(omega))
@@ -37,22 +35,19 @@ def output():
     Ec=fn.Ec
     odata.write('\nEc[J]:'+str(Ec))
     odata.close()
-    os.rename('data.txt','odata.txt')
+    try:
+        os.rename('data.txt','odata.txt')
+    except FileExistsError:
+        os.remove('odata.txt')
+        os.rename('data.txt','odata.txt')
 
 def preview():
     pdata=open('odata.txt','r')
     prev=pdata.read()
     print(prev)
 
-param()
 
-try:
-    param()
-except ValueError:
-    print('no u')
-else:
-    output()
-    preview()
+
 
 
 
