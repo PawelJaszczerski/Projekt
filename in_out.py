@@ -39,7 +39,10 @@ def output():
     odata.close()
     os.rename('data.txt','odata.txt')
 
-
+def preview():
+    pdata=open('odata.txt','r')
+    prev=pdata.read()
+    print(prev)
 
 param()
 
@@ -49,6 +52,7 @@ except ValueError:
     print('no u')
 else:
     output()
+    preview()
 
 
 
