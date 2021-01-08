@@ -7,11 +7,11 @@ g = io.g
 d = io.d
 theta_0 = np.radians(io.theta_0)
 m = io.m
-time = np.linspace(0., 60., 100000)
+time = np.linspace(0., 2*fn.T, 100000)
 def wykresy():
     plt.subplot(411)
     angle = np.vectorize(fn.angle)
-    plt.plot(time, angle(time, d, theta_0, g), label='angle')
+    plt.plot(time, angle(time, theta_0, d, g), label='angle')
     plt.xlabel('time')
     plt.ylabel('angle')
 

@@ -2,14 +2,14 @@ import numpy as np
 
 def angfreq(d, g):
     global omega
-    omega = (d/g)**(1/2)
+    omega = (g/d)**(1/2)
     return omega
 def period(d, g):
     global T
     angfreq(d, g)
-    T = 2*np.pi*(omega)
+    T = 2*np.pi*(1/omega)
     return T
-def angle(t, d, theta_0, g):
+def angle(t, theta_0, d, g):
     angfreq(d, g)
     global theta
     theta=theta_0* np.cos(omega*t)
