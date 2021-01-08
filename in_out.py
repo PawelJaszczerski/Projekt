@@ -1,5 +1,6 @@
 import funkcje as fn
 import os
+import numpy as np
 def param():
     try:
         data=open('data.txt', 'r')
@@ -32,14 +33,11 @@ def param():
 
 def output():
     odata=open('data.txt','a')
-    fn.period(d, g)
-    T=round(fn.T, 4)
+    T=round(fn.period(d, g), 4)
     odata.write('\nT[s]:'+str(T))
-    fn.angfreq(d, g)
-    omega=round(fn.omega, 4)
+    omega=round(fn.angfreq(d, g), 4)
     odata.write('\nomega[rad/s]:'+str(omega))
-    fn.tot_en(d,theta_0, m, g)
-    Ec=round(fn.Ec, 4)
+    Ec=round(fn.tot_en(d,np.radians(theta_0), m, g), 4)
     odata.write('\nEc[J]:'+str(Ec))
     odata.close()
 
