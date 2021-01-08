@@ -1,6 +1,5 @@
 import numpy as np
 
-
 def angfreq(d, g):
     global omega
     omega = (d/g)**(1/2)
