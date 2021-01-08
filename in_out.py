@@ -13,10 +13,22 @@ def param():
         global m
         global g
         d = float(dist.split(':')[1])
+        if d<=0:
+            print('Proszę wprowadzić dodatnią długość wahadła')
+            return
         theta_0 = float(init_ang.split(':')[1])
+        if theta_0>10 or theta_0<-10:
+            print('Proszę wprowadzić kąt z przedziału [-10, 10]')
+            return
         m = float(mass.split(':')[1])
+        if m<0:
+            print('Proszę wprowadzić dodatnią masę')
+            return
         try:
             g = float(acceleration.split(':')[1])
+            if g < 0:
+                print('Proszę wprowadzić dodatnie przyspieszenie grawitacyjne')
+                return
         except ValueError:
             g = 9.8067
         return d, theta_0, m, g
@@ -24,9 +36,9 @@ def param():
     except FileNotFoundError:
         data=open('data.txt', 'a')
         data.write('d[m]:')
-        data.write('\ntheta_0[stopnie]:')
+        data.write('\ntheta_0[stopnie][-10, 10]:')
         data.write('\nm[kg]:')
-        data.write('\n(opcjonalnie)g[m/s^2]:')
+        data.write('\ng[m/s^2](domyślnie ziemskie):')
         data.close()
 
 
