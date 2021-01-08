@@ -11,7 +11,7 @@ time = np.linspace(0., 2*fn.T, 100000)
 def wykresy():
     plt.subplot(411)
     angle = np.vectorize(fn.angle)
-    plt.plot(time, angle(time, d, theta_0, g), label='angle')
+    plt.plot(time, angle(time, theta_0, d, g), label='angle')
     plt.xlabel('time')
     plt.ylabel('angle')
 
