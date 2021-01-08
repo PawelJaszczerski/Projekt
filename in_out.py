@@ -13,6 +13,9 @@ def param():
         global g
         d = float(dist.split(':')[1])
         theta_0 = float(init_ang.split(':')[1])
+        if theta_0>10:
+            print('Proszę wprowadzić kąt do 10 stopni')
+            return
         m = float(mass.split(':')[1])
         try:
             g = float(acceleration.split(':')[1])
@@ -23,9 +26,9 @@ def param():
     except FileNotFoundError:
         data=open('data.txt', 'a')
         data.write('d[m]:')
-        data.write('\ntheta_0[stopnie]:')
+        data.write('\ntheta_0[stopnie] - do 10 stopni:')
         data.write('\nm[kg]:')
-        data.write('\n(opcjonalnie)g[m/s^2]:')
+        data.write('\ng[m/s^2] - domyślnie ziemskie:')
         data.close()
 
 

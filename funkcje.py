@@ -11,7 +11,7 @@ def period(d, g):
     angfreq(d, g)
     T = 2*np.pi*(omega)
     return T
-def angle(t, theta_0, d, g):
+def angle(t, d, theta_0, g):
     angfreq(d, g)
     global theta
     theta=theta_0* np.cos(omega*t)
