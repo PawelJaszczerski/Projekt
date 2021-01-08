@@ -26,13 +26,13 @@ def animacja():
 
     def animation(frame):
         global x, y
-        x = d * np.sin(fn.angle(frame, theta_0, d, g))
-        y = d - d * np.cos(fn.angle(frame, theta_0, d, g))
+        x = d * np.sin(fn.angle(frame/5, theta_0, d, g))
+        y = d - d * np.cos(fn.angle(frame/5, theta_0, d, g))
         point.set_data(x, y)
         xline = x
         yline = y
         line.set_data([xline0, xline], [yline0, yline])
 
-    ani = FuncAnimation(fig, animation, frames=10000, interval=10)
+    ani = FuncAnimation(fig, animation, frames=10000, interval=50)
     plt.show()
 
