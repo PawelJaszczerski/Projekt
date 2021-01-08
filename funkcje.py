@@ -1,49 +1,37 @@
 import numpy as np
-# d - długość wahadła [m]
-# theta_0 - kąt wychylenia początkowego [rad]
-# g - przyspieszenie grawitacyjne (docelowo ziemskie jako domyślne lub wprowadzane przez użytkownika)
-# m - masa punktowa [kg]
-# omega - częstość kołowa [rad/s]
-# T - okres [s]
-# t - czas [s]
 
-#przykładowe dane
-g = 9.8067
-d = 10
-m = 1
 t = np.arange(0., 1000., 0.1)
-theta_0 = 1/12*np.pi
 
-def angfreq(d):
+def angfreq(d, g):
     global omega
     omega = (d/g)**(1/2)
     return omega
-def period(d):
+def period(d, g):
     global T
-    angfreq(d)
+    angfreq(d, g)
     T = 2*np.pi*(omega)
     return T
-def angle(t, theta_0, d):
-    angfreq(d)
+def angle(t, theta_0, d, g):
+    angfreq(d, g)
     global theta
     theta=theta_0* np.cos(omega*t)
     return theta
-def pot_en(t, d, theta_0, m):
-    angle(t, theta_0, d)
+def pot_en(t, d, theta_0, m, g):
+    angle(t, theta_0, d, g)
     global Ep
     Ep = m*g*d*(1-np.cos(theta))
     return Ep
-def kin_en(t, d, theta_0, m):
-    angle(t, theta_0, d)
+def kin_en(t, d, theta_0, m, g):
+    angle(t, theta_0, d, g)
     global Ek
     Ek = m*g*d*(np.cos(theta)-np.cos(theta_0))
     return Ek
-def tot_en(d, theta_0, m):
+def tot_en(d, theta_0, m, g):
     global Ec
     Ec = m*g*d*(1-np.cos(theta_0))
     return Ec
-def velocity(t, d, theta_0, m):
+def velocity(t, d, theta_0, m, g):
     global v
-    kin_en(t, d, theta_0, m)
+    kin_en(t, d, theta_0, m, g)
     v = (2*Ek/m)**(1/2)
     return v

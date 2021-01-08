@@ -6,8 +6,7 @@ import in_out as io
 
 def animacja():
     io.param()
-    #przykładowe dane
-    g = 9.8067
+    g=io.g
     d=io.d
     m=io.m
     t = np.arange(0., 1000., 0.1)
@@ -27,8 +26,8 @@ def animacja():
 
     def animation(frame):
         global x, y
-        x = d * np.sin(fn.angle(frame, theta_0, d))
-        y = d - d * np.cos(fn.angle(frame, theta_0, d))
+        x = d * np.sin(fn.angle(frame, theta_0, d, g))
+        y = d - d * np.cos(fn.angle(frame, theta_0, d, g))
         point.set_data(x, y)
         xline = x
         yline = y
