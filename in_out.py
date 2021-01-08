@@ -26,13 +26,13 @@ def param():
 def output():
     odata=open('data.txt','a')
     fn.period(d)
-    T=fn.T
+    T=round(fn.T, 4)
     odata.write('\nT[s]:'+str(T))
     fn.angfreq(d)
-    omega=fn.omega
+    omega=round(fn.omega, 4)
     odata.write('\nomega[rad/s]:'+str(omega))
     fn.tot_en(d,theta_0,m)
-    Ec=fn.Ec
+    Ec=round(fn.Ec, 4)
     odata.write('\nEc[J]:'+str(Ec))
     odata.close()
     try:
