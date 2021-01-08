@@ -26,8 +26,8 @@ def animacja():
 
     def animation(frame):
         global x, y
-        x = d * np.sin(fn.angle(frame/5, theta_0, d, g))
-        y = d - d * np.cos(fn.angle(frame/5, theta_0, d, g))
+        x = d * np.sin(fn.angle(frame/20, theta_0, d, g))
+        y = d - d * np.cos(fn.angle(frame/20, theta_0, d, g))
         point.set_data(x, y)
         xline = x
         yline = y
