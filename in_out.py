@@ -26,9 +26,6 @@ def param():
             return
         try:
             g = float(acceleration.split(':')[1])
-            if g < 0:
-                print('Proszę wprowadzić dodatnie przyspieszenie grawitacyjne')
-                return
         except ValueError:
             g = 9.8067
         return d, theta_0, m, g
