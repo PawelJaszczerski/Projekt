@@ -1,6 +1,7 @@
 import funkcje as fn
 import os
 import numpy as np
+
 def param():
     try:
         data=open('data.txt', 'r')
@@ -36,10 +37,17 @@ def param():
         except IndexError:
             print('Proszę wprowadzić dane za dwukropkiem')
             return
+
         try:
-            g = float(acceleration.split(':')[1])
-        except ValueError:
-            g = 9.8067
+            ac = acceleration.split(':')[1].rstrip().lower()
+            gamma = {'ziemia': 9.8067, 'merkury': 3.7, 'wenus': 8.9, 'mars': 3.7, 'jowisz': 23.1, 'saturn': 9.0, 'uran': 8.7, 'neptun': 11.0, 'pluton': 0.7, 'księżyc': 1.6, 'słońce': 274}
+            if ac in gamma:
+                g=gamma[ac]
+            else:
+                try:
+                    g=float(ac)
+                except ValueError:
+                    g = 9.8067
         except IndexError:
             print('Proszę wprowadzić dane za dwukropkiem')
             return
