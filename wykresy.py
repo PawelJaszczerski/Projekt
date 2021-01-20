@@ -2,6 +2,7 @@ import funkcje as fn
 import matplotlib.pyplot as plt
 import numpy as np
 import in_out as io
+from animacja import animacja
 
 g = io.g
 d = io.d
@@ -32,4 +33,7 @@ def wykresy():
     plt.plot(time, velocity(time, d, theta_0, m, g), color='y', label='velocity')
     plt.xlabel('time')
     plt.ylabel('velocity')
+
+    animacja()
     plt.show()
+

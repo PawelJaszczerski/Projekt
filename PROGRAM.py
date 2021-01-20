@@ -16,4 +16,3 @@ else:
         import wykresy
         import animacja
         wykresy.wykresy()
-        animacja.animacja()
