@@ -5,7 +5,6 @@ import funkcje as fn
 import in_out as io
 
 def animacja():
-    io.param()
     g=io.g
     d=io.d
     m=io.m

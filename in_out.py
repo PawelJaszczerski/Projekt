@@ -9,6 +9,7 @@ def param():
         init_ang=data.readline()
         mass=data.readline()
         acceleration=data.readline()
+        data.close()
         global d
         global theta_0
         global m
@@ -19,6 +20,7 @@ def param():
                 print('Proszę wprowadzić dodatnią długość wahadła')
                 return
         except IndexError:
+            template()
             print('Proszę wprowadzić dane za dwukropkiem')
             return
         try:
@@ -27,6 +29,7 @@ def param():
                 print('Proszę wprowadzić kąt z przedziału [-10, 10]')
                 return
         except IndexError:
+            template()
             print('Proszę wprowadzić dane za dwukropkiem')
             return
         try:
@@ -36,6 +39,7 @@ def param():
                 return
         except IndexError:
             print('Proszę wprowadzić dane za dwukropkiem')
+            template()
             return
 
         try:
@@ -50,16 +54,12 @@ def param():
                     g = 9.8067
         except IndexError:
             print('Proszę wprowadzić dane za dwukropkiem')
+            template()
             return
         return d, theta_0, m, g
 
     except FileNotFoundError:
-        data=open('data.txt', 'a')
-        data.write('długość d wahadła [m]:')
-        data.write('\nkąt wychylenia początkowego theta_0[stopnie][-10, 10]:')
-        data.write('\nmasa m wahadła [kg]:')
-        data.write('\nciało niebieskie lub wartość przyspieszenia grawitacyjnego g[m/s^2](domyślnie ziemskie):')
-        data.close()
+        template()
 
 
 
@@ -83,3 +83,11 @@ def preview():
     pdata=open('odata.txt','r')
     prev=pdata.read()
     print(prev)
+
+def template():
+    data = open('data.txt', 'w')
+    data.write('długość d wahadła [m]:')
+    data.write('\nkąt wychylenia początkowego theta_0[stopnie][-10, 10]:')
+    data.write('\nmasa m wahadła [kg]:')
+    data.write('\nciało niebieskie lub wartość przyspieszenia grawitacyjnego g[m/s^2](domyślnie ziemskie):')
+    data.close()
