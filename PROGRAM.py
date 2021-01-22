@@ -17,5 +17,4 @@ else:
         print('Proszę wprowadzić dane do pliku data.txt i uruchomić program ponownie')
     else:
         import wykresy
-        import animacja
         wykresy.wykresy()
