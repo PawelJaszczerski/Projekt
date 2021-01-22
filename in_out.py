@@ -83,6 +83,7 @@ def preview():
     pdata=open('odata.txt','r')
     prev=pdata.read()
     print(prev)
+    print('Dane do wglądu w pliku odata.txt')
 
 def template():
     data = open('data.txt', 'w')

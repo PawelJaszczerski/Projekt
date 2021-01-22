@@ -8,7 +8,6 @@ def animacja():
     g=io.g
     d=io.d
     m=io.m
-    t = np.arange(0., 1000., 0.1)
     theta_0=np.radians(io.theta_0)
 
     fig = plt.figure()

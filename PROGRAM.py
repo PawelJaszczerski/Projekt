@@ -14,7 +14,7 @@ else:
     except ZeroDivisionError:
         print('Proszę wprowadzić dodatnie przyspieszenie grawitacyjne')
     except NameError:
-        print('Proszę wprowadzić dane do pliku i uruchomić program ponownie')
+        print('Proszę wprowadzić dane do pliku data.txt i uruchomić program ponownie')
     else:
         import wykresy
         import animacja
